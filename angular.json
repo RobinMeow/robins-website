@@ -7,7 +7,16 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush",
+          "standalone": true,
+          "prefix": "apple"
+        },
+        "@schematics/angular:interceptor": {
+          "functional": true
+        },
+        "@schematics/angular:guard": {
+          "functional": true
         }
       },
       "root": "",

@@ -21,7 +21,14 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@environment": [ "src/environments/environment" ],
+      "@theming": [ "src/app/theming/index" ],
+      "@layout": [ "src/app/layout/index" ],
+      "@likes": [ "src/app/likes/index" ],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

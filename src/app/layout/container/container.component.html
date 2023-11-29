@@ -1,0 +1,10 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" opened="true">
+    <layout-sidebar [drawer]="drawer" />
+  </mat-drawer>
+  <layout-header [drawer]="drawer" />
+  <div class="set-min-height">
+    <router-outlet />
+  </div>
+  <layout-footer />
+</mat-drawer-container>

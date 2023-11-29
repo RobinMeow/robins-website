@@ -1,0 +1,25 @@
+<button
+  mat-icon-button
+  class="favorite-icon red-color"
+  i18n-aria-label
+  aria-label="like button"
+  (click)="onClickAsync()"
+>
+  <div
+    [matBadge]="likes"
+    matBadgeColor="accent"
+    matBadgePosition="above after"
+    [matBadgeHidden]="likes === -1"
+    matBadgeSize="small"
+    [@singleHeartBeat]="badgeState"
+    (@singleHeartBeat.done)="badgeState = ''"
+  ></div>
+  <mat-icon
+    area-hidden="false"
+    i18n-aria-label
+    aria-label="favorite icon"
+    fontIcon="favorite"
+    [@singleHeartBeat]="heartState"
+    (@singleHeartBeat.done)="heartState = ''"
+  ></mat-icon>
+</button>

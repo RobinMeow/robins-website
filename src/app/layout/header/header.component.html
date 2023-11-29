@@ -1,0 +1,57 @@
+<mat-toolbar color="primary" role="banner" class="header">
+  <button
+    mat-icon-button
+    i18n-aria-label
+    aria-label="menu icon"
+    (click)="drawer.toggle()"
+    [hidden]="drawer.opened"
+  >
+    <mat-icon
+      area-hidden="false"
+      i18n-aria-label
+      aria-label="menu"
+      fontIcon="menu"
+    />
+  </button>
+
+  <img
+    id="imgLogo"
+    class="cursorPointer hide-logo"
+    ngSrc="assets/icons/favicon-32x32.png"
+    lazy
+    width="32"
+    height="32"
+    routerLink="./home"
+    alt="Website Logo"
+    i18n-alt
+  />
+
+  <!-- ToDo: James Bond reference for references -->
+  <h3 class="cursorPointer hide-title-text-completely" routerLink="'./home'">
+    <span class="hide-title-text"
+      ><ng-container i18n>The name's</ng-container></span
+    >
+    Robin
+  </h3>
+
+  <span class="spacer"></span>
+
+  <app-language-selection></app-language-selection>
+
+  <app-like-button></app-like-button>
+
+  <button
+    mat-icon-button
+    i18n-aria-label
+    aria-label="theme icon"
+    (click)="toggleTheme(btnThemeIcon)"
+  >
+    <mat-icon
+      #btnThemeIcon
+      area-hidden="false"
+      i18n-aria-label
+      aria-label="menu"
+      fontIcon="light_mode"
+    ></mat-icon>
+  </button>
+</mat-toolbar>
