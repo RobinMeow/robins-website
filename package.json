@@ -7,7 +7,6 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:robins-website": "node dist/robins-website/server/server.mjs",
     "test-deploy": "firebase hosting:channel:deploy test --expires 2h"
   },
   "private": true,
