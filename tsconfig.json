@@ -28,6 +28,9 @@
       "@theming": [ "src/app/theming/index" ],
       "@layout": [ "src/app/layout/index" ],
       "@likes": [ "src/app/likes/index" ],
+      "@locale": [ "src/app/locale/index" ],
+      "@cats": [ "src/app/cats/index" ],
+      "@shared/icons": [ "src/app/shared/icons/index" ],
     }
   },
   "angularCompilerOptions": {

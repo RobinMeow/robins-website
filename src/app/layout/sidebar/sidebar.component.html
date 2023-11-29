@@ -1,1 +1,142 @@
-<p>sidebar works!</p>
+<mat-list class="flex-list">
+  <!-- top list -->
+  <div>
+    <div class="sidebar-header">
+      <!-- todo: add randomized emojies on toggle -->
+      <button
+        mat-icon-button
+        i18n-aria-label
+        aria-label="close menu"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon
+          area-hidden="false"
+          i18n-aria-label
+          aria-label="close"
+          fontIcon="close"
+        ></mat-icon>
+      </button>
+    </div>
+
+    <!-- <div mat-subheader>Folders</div> -->
+    <mat-list-item
+      matRipple
+      routerLink="/"
+      class="sidebarButton"
+      routerLinkActive="activeSidebarButton"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="closeSidenav()"
+    >
+      <mat-icon matListItemIcon>home</mat-icon>
+      <div matListItemTitle><ng-container i18n>Home</ng-container></div>
+    </mat-list-item>
+
+    <mat-list-item
+      matRipple
+      routerLink="/about"
+      class="sidebarButton"
+      routerLinkActive="activeSidebarButton"
+      (click)="closeSidenav()"
+    >
+      <mat-icon matListItemIcon>badge</mat-icon>
+      <div matListItemTitle><ng-container i18n>About me</ng-container></div>
+    </mat-list-item>
+    <!-- routerLink, iconName, text, routerLinkExactMatch -->
+    <mat-divider aria-hidden="true"></mat-divider>
+
+    <!-- Tech Stack -->
+    <mat-list-item
+      matRipple
+      routerLink="/tech-stack"
+      class="sidebarButton"
+      routerLinkActive="activeSidebarButton"
+      (click)="closeSidenav()"
+    >
+      <mat-icon matListItemIcon>analytics</mat-icon>
+      <div matListItemTitle><ng-container i18n>Tech Stack</ng-container></div>
+    </mat-list-item>
+
+    <!-- Resume -->
+    <mat-list-item
+      matRipple
+      routerLink="/resume"
+      class="sidebarButton"
+      routerLinkActive="activeSidebarButton"
+      (click)="closeSidenav()"
+    >
+      <mat-icon matListItemIcon>history_edu</mat-icon>
+      <div matListItemTitle><ng-container i18n>Resume</ng-container></div>
+    </mat-list-item>
+
+    <!-- Software Biography -->
+    <mat-list-item
+      matRipple
+      routerLink="/software-engineering"
+      class="sidebarButton"
+      routerLinkActive="activeSidebarButton"
+      (click)="closeSidenav()"
+    >
+      <mat-icon matListItemIcon>code</mat-icon>
+      <div matListItemTitle>
+        <ng-container i18n>Software Biography</ng-container>
+      </div>
+    </mat-list-item>
+
+    <!-- ./blogs -->
+    <!-- <mat-list-item matRipple class="sidebarButton" [routerLinkActive]="'activeSidebarButton'" disabled>
+              <mat-icon matListItemIcon>newspaper</mat-icon>
+              <div matListItemTitle><ng-container i18n>Blogs</ng-container></div>
+          </mat-list-item> -->
+  </div>
+
+  <!-- Bottom list -->
+  <div>
+    <img
+      #catImg
+      i18n-alt
+      alt="a random cute cat"
+      width="200"
+      height="200"
+      hidden="true"
+      [class.cat-img]="catImg.src != ''"
+    />
+    <!-- because image coes up and down, each time the loading bar is visible -->
+    <div class="prevent-image-moving-up-and-down">
+      <mat-progress-bar
+        color="accent"
+        *ngIf="isLoadingCat"
+        mode="indeterminate"
+      ></mat-progress-bar>
+    </div>
+    <mat-list-item
+      matRipple
+      class="sidebarButton"
+      (click)="loadCat()"
+      [disabled]="isLoadingCat"
+    >
+      <mat-icon matListItemIcon>pets</mat-icon>
+      <div matListItemTitle>
+        <ng-container i18n>Give me a cat!</ng-container>
+      </div>
+      <div matListItemLine>
+        <i>
+          <ng-container i18n>Can include gifs</ng-container>
+        </i>
+      </div>
+    </mat-list-item>
+
+    <mat-list-item
+      matRipple
+      routerLink="/credits"
+      class="sidebarButton"
+      routerLinkActive="activeSidebarButton"
+      (click)="closeSidenav()"
+    >
+      <app-mat-symbol-eco matListItemIcon></app-mat-symbol-eco>
+      <div matListItemTitle><ng-container i18n>Laurels</ng-container></div>
+      <span
+        ><i><ng-container i18n>Credits</ng-container></i></span
+      >
+    </mat-list-item>
+  </div>
+</mat-list>

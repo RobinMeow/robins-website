@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { IpAddressService } from '@likes';
 
-describe('IpAddressService', () => {
-  let service: IpAddressService;
+import { LocaleService } from './locale.service';
+
+describe('LocaleService', () => {
+  let service: LocaleService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(IpAddressService);
+    service = TestBed.inject(LocaleService);
   });
 
   it('should be created', () => {

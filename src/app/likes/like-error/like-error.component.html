@@ -1,1 +1,18 @@
-<p>like-error works!</p>
+<div>
+  <ng-container i18n
+    >An unexpected error occured, could not increase counter.</ng-container
+  ><br />
+  <strong
+    ><ng-container i18n
+      >But thank you regardless and I like you too!</ng-container
+    ></strong
+  >
+</div>
+<button
+  mat-raised-button
+  color="warn"
+  matSnackBarAction
+  (click)="snackBarRef.dismissWithAction()"
+>
+  ok :c
+</button>

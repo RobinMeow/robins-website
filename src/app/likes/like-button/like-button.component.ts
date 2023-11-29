@@ -1,24 +1,41 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  inject,
+} from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { IpAddressService, LikeRepository } from '@likes';
+import { MatBadgeModule } from '@angular/material/badge';
+import {
+  IpAddressIpify,
+  IpAddressService,
+  LikeErrorComponent,
+  LikeRepository,
+  LikeThanksComponent,
+  singleHeartBeatAnimation,
+} from '@likes';
 
 @Component({
   selector: 'likes-like-button',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, MatIconModule, MatButtonModule, MatBadgeModule],
   templateUrl: './like-button.component.html',
   styleUrl: './like-button.component.scss',
   // changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [singleHeartBeatAnimation],
 })
-export class LikeButtonComponent {
+export class LikeButtonComponent implements OnInit {
+  private readonly _ipAddressService = inject(IpAddressService);
+  private readonly _likeRepository = inject(LikeRepository);
+  private readonly _snackBar = inject(MatSnackBar);
+
   protected likes: number = -1;
 
-  constructor(
-    private readonly _ipAddressService: IpAddressService,
-    private readonly _likeRepository: LikeRepository,
-    private readonly _snackBar: MatSnackBar
-  ) {
-    this.loadLikes();
+  ngOnInit(): void {
+    this.loadLikes_FireAndForget();
   }
 
   protected heartState: string = '';
@@ -33,7 +50,7 @@ export class LikeButtonComponent {
     this.badgeState = newState;
   }
 
-  private async loadLikes(): Promise<void> {
+  private async loadLikes_FireAndForget(): Promise<void> {
     try {
       this.likes = await this._likeRepository.getCountAsync();
     } catch (error) {
@@ -56,7 +73,7 @@ export class LikeButtonComponent {
       }
 
       await this._likeRepository.addLikeAsync(ipify.ip);
-      this.loadLikes();
+      this.loadLikes_FireAndForget();
       this.changeBadgeState('beatIt');
       this.showThanksForTheLike();
     } catch (error) {
@@ -65,7 +82,7 @@ export class LikeButtonComponent {
   }
 
   private showThanksForTheLike(): void {
-    this._snackBar.openFromComponent(ThanksForTheLikeComponent, {
+    this._snackBar.openFromComponent(LikeThanksComponent, {
       duration: 3500,
     });
   }

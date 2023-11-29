@@ -1,5 +1,18 @@
 import { Injectable, inject } from '@angular/core';
-import { query } from 'express';
+import {
+  CollectionReference,
+  DocumentData,
+  DocumentReference,
+  Firestore,
+  addDoc,
+  collection,
+  getCountFromServer,
+  serverTimestamp,
+  where,
+  query,
+} from '@angular/fire/firestore';
+
+const COLLECTION_NAME: string = 'likes';
 
 @Injectable({
   providedIn: 'root',

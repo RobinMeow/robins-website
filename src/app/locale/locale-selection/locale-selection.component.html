@@ -1,0 +1,12 @@
+<button mat-button [matMenuTriggerFor]="localeSelection">
+  {{ _currentLocale | uppercase }}
+</button>
+<mat-menu #localeSelection="matMenu" xPosition="before">
+  <button
+    mat-menu-item
+    (click)="onLocaleClick(locale.locale)"
+    *ngFor="let locale of LOCALES"
+  >
+    {{ locale.display }}
+  </button>
+</mat-menu>

@@ -11,10 +11,10 @@ import { MatDrawer, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
-import { LanguageSelectionComponent } from 'src/app/language-selection/language-selection.component';
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 import { LikeButtonComponent } from '@likes';
 import { THEMES, ThemeSwitcherService } from '@theming';
+import { LocaleSelectionComponent } from '@locale';
 
 @Component({
   selector: 'layout-header',
@@ -27,7 +27,7 @@ import { THEMES, ThemeSwitcherService } from '@theming';
     MatButtonModule,
     RouterModule,
     MatMenuModule,
-    LanguageSelectionComponent,
+    LocaleSelectionComponent,
     NgOptimizedImage,
     MatSnackBarModule,
     LikeButtonComponent,
