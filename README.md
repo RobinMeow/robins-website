@@ -1,27 +1,38 @@
-# RobinsWebsite
+# RobinsHomepage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+ A little bit about myself.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [cmds](docs/cmds.md)
+- Features
+  - [Current / Open](docs/features.md)
+  - [Completed](docs/features-completed.md)
+  - [Abandoned](docs/features-abandoned.md)
+  - [On Hold](docs/features-on-hold.md)
+  - [Priority](docs/features-priority.md)
+- Issues
+  - [Current / Open](docs/issues.md)
+  - [Completed](docs/issues-completed.md)
+  - [Abandoned](docs/issues-abandoned.md)
+- [Localization](docs/localization.md)
+- [Firebase](docs/firebase.md)
+- [Workflows](docs/workflows.md)
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Dev - Initial Setup
 
-## Build
+1. Clone the Repository
+2. run `npm install` (this will install all packages and and get rid of various relating error messages)
+3. Refer to the [Firebase](docs/firebase.md) and [Workflows](docs/workflows.md) file for further things, if at all, needed.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+> Make sure you have the global packages available via the path variable
+(in windows it would an environment varibale.
+You can simply add `C...absolutePathTo\AppData\Roaming\npm`.
+Make sure to use backslash, and not forward slash, and to have the npm folder,
+which contains the cmd .ps files if you look into it, as the last folder,
+and not npm\nodes_modules because, the said cmds will make use of the node_modules folder)  
+>
+> I'am using, firebase, firebase-tools, http-server and @angular/cli
+http-server is the only optional thing in here.
