@@ -45,3 +45,13 @@ Thumbs.db
 /src/environments/environment.de.ts
 /src/environments/environment.en-US.ts
 /src/environments/environment.ts
+
+# Firebase
+.idea
+**/node_modules/*
+**/.firebaserc
+.runtimeconfig.json
+.firebase/
+**/firestore.indexes.json
+**/firestore.rules
+**/firebase-debug.log
