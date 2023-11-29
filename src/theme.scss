@@ -1,0 +1,20 @@
+@use '@angular/material' as mat;
+@use 'app/container/sidebar/sidebar-button-theme' as sidebarButton;
+@use 'app/content/software-biography/software-biography' as software-biography;
+@use 'styles.scss' as styles;
+@import 'theme-variables.scss';
+
+@include mat.core();
+@include mat.all-component-themes($my-dark-theme);
+@include sidebarButton.apply-theme($my-dark-theme);
+@include software-biography.apply-theme($my-dark-theme);
+@include styles.apply-theme($my-dark-theme);
+
+.lightTheme {
+    @include mat.all-component-colors($my-light-theme);
+    @include sidebarButton.apply-theme($my-light-theme);
+    @include software-biography.apply-theme($my-light-theme);
+    @include styles.apply-theme($my-light-theme);
+}
+// @media (prefers-color-scheme: light){
+// }

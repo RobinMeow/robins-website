@@ -1,0 +1,29 @@
+@use '@angular/material' as mat;
+
+// Color Palettes: https://m1.material.io/style/color.html#color-color-palette
+
+$primary-palette: mat.define-palette(mat.$grey-palette, 700); // default, lighter, darker 
+$accent-palette: mat.define-palette(mat.$green-palette); 
+
+$primary-light-palette: $primary-palette; 
+$accent-light-palette: mat.define-palette(mat.$green-palette);  
+
+$my-typography-config: mat.define-typography-config();
+
+$my-dark-theme: mat.define-dark-theme((
+    color: (
+        primary: $primary-palette, 
+        accent: $accent-palette,
+    ),
+    typography: $my-typography-config,
+    density: 0,
+));
+
+$my-light-theme: mat.define-light-theme((
+    color: (
+        primary: $primary-light-palette, 
+        accent: $accent-light-palette,
+    ),
+    typography: $my-typography-config,
+    density: 0,
+));
