@@ -1,1 +1,126 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use '@angular/material/toolbar/toolbar-variables';
+
+/* You can add global styles to this file, and also import other style files */ 
+// https://www.youtube.com/watch?v=NugqJxFYmDM custom theme 
+
+* {
+    box-sizing: border-box;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', "Helvetica Neue", sans-serif; }
+
+.set-min-height {
+    // full height, to ensure footer is visible when you scroll (min height, to make sure it only applies when contnt is smaller than full height)
+    min-height: calc(100vh - (toolbar-variables.$height-mobile));; // mobile first approach 
+    
+    // i checked the browser when the toolbar changes its height. this is where the 600 comes from (this value could change if someone messes around with density)
+    @media(min-width: 600px){ 
+        min-height: calc(100vh - (toolbar-variables.$height-desktop)); // subtract header 
+    }
+}
+
+/* roboto-300 - latin_latin-ext (from https://gwfh.mranftl.com/fonts/roboto?subsets=latin,latin-ext) */
+@font-face {
+    font-display: swap; 
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: url('assets/fonts/roboto-v30-latin_latin-ext-300.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+         url('assets/fonts/roboto-v30-latin_latin-ext-300.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-300italic - latin_latin-ext */
+@font-face {
+  font-display: swap; 
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 300;
+  src: url('assets/fonts/roboto-v30-latin_latin-ext-300italic.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+        url('assets/fonts/roboto-v30-latin_latin-ext-300italic.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-regular - latin_latin-ext */
+@font-face {
+  font-display: swap; 
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/roboto-v30-latin_latin-ext-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+        url('assets/fonts/roboto-v30-latin_latin-ext-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-italic - latin_latin-ext */
+@font-face {
+  font-display: swap; 
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: url('assets/fonts/roboto-v30-latin_latin-ext-italic.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+        url('assets/fonts/roboto-v30-latin_latin-ext-italic.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-500 - latin_latin-ext */
+@font-face {
+  font-display: swap; 
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('assets/fonts/roboto-v30-latin_latin-ext-500.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+        url('assets/fonts/roboto-v30-latin_latin-ext-500.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* roboto-500italic - latin_latin-ext */
+@font-face {
+  font-display: swap; 
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 500;
+  src: url('assets/fonts/roboto-v30-latin_latin-ext-500italic.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+        url('assets/fonts/roboto-v30-latin_latin-ext-500italic.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+// ToDo: Do slightly different colors for them .. 
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+@mixin apply-theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    $accent-palette: map.get($color-config, 'accent');
+    $accent-color: mat.get-color-from-palette($accent-palette);
+    
+    .accent-highlight {
+      background-color: rgba($accent-color, 0.3);
+      --side-padding: 2px;
+      padding-left: var(--side-padding);
+      padding-right: var(--side-padding);
+    }
+}
+
+// ToDo: use mixins instead to tuse th original accent color
+$primary-color-hard-coded: #5fc437;
+a:link {
+  color: $primary-color-hard-coded;
+}
+
+a:visited {
+  color: $primary-color-hard-coded;
+}
+
+a:focus {
+  text-decoration: none;
+  color: $primary-color-hard-coded;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #71c451;
+}
+
+a:active {
+  color: $primary-color-hard-coded;
+}
+
+.monospace {
+  font-family: monospace;
+  font-size: 1.2em;
+}
